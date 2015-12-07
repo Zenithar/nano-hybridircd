@@ -5,9 +5,9 @@ WORKDIR /src
 
 RUN apk add --update -t build-deps make gcc g++ git wget bison openssl-dev \
     && apk add -u musl && rm -rf /var/cache/apk/* \
-    && wget http://prdownloads.sourceforge.net/ircd-hybrid/ircd-hybrid-8.2.9.tgz \
-    && tar zxvf ircd-hybrid-8.2.9.tgz \
-    && cd /src/ircd-hybrid-8.2.9 \
+    && wget http://prdownloads.sourceforge.net/ircd-hybrid/ircd-hybrid-8.2.11.tgz \
+    && tar zxvf ircd-hybrid-8.2.11.tgz \
+    && cd /src/ircd-hybrid-8.2.11 \
     && ./configure --prefix="/opt/ircd" --enable-openssl \
     && make \
     && make install \
