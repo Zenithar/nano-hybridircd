@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM frolvlad/alpine-glibc:latest
 MAINTAINER Thibault NORMAND <me@zenithar.org>
 
 WORKDIR /src
@@ -6,8 +6,8 @@ WORKDIR /src
 RUN apk add --update -t build-deps make gcc g++ git wget bison openssl-dev \
     && apk add -u musl && rm -rf /var/cache/apk/* \
     && wget http://prdownloads.sourceforge.net/ircd-hybrid/ircd-hybrid-8.2.11.tgz \
-    && tar zxvf ircd-hybrid-8.2.11.tgz \
-    && cd /src/ircd-hybrid-8.2.11 \
+    && tar zxvf ircd-hybrid-8.2.17.tgz \
+    && cd /src/ircd-hybrid-8.2.17 \
     && ./configure --prefix="/opt/ircd" --enable-openssl \
     && make \
     && make install \
